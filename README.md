@@ -164,6 +164,6 @@ Este proyecto está bajo la licencia MIT.
 💬 Contacto
 Si tienes dudas o deseas colaborar:
 
-✉️ Email: [tu-email@ejemplo.com]
+✉️ Email: [alejandrotoro27@icloud.com]
 
-🐙 GitHub: https://github.com/tu-usuario
+🐙 GitHub: https://github.com/Alejandrotoro027
