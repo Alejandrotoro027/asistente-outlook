@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Resultado de la Limpieza</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>📋 Log de la limpieza</h1>
+    <pre>{{ log }}</pre>
+    <a href="{{ url_for('index') }}">⬅️ Volver</a>
+  </div>
+</body>
+</html>

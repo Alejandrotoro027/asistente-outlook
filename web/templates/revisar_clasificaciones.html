@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Revisión de Clasificaciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container seccion-revision">
+        <h1 class="titulo-seccion">📊 Revisión de Clasificaciones</h1>
+        <a href="/" class="boton-volver">⬅ Volver al menú principal</a>
+
+        <form method="get" action="/entrenar/revisar" class="filtros">
+            <label for="filtro">Filtrar por:</label>
+            <select name="filtro" id="filtro" onchange="this.form.submit()">
+                <option value="todos" {% if filtro == 'todos' %}selected{% endif %}>Todos</option>
+                <option value="revisados" {% if filtro == 'revisados' %}selected{% endif %}>Revisados Manualmente</option>
+                <option value="no_revisados" {% if filtro == 'no_revisados' %}selected{% endif %}>No Revisados</option>
+            </select>
+        </form>
+
+        <table class="revision">
+            <thead>
+                <tr>
+                    <th>📩 Asunto</th>
+                    <th>👤 Remitente</th>
+                    <th>📁 Carpeta</th>
+                    <th>SPAM?</th>
+                    <th>Clasificación</th>
+                    <th>✔ Revisado</th>
+                    <th>⚙️ Origen</th>
+                    <th>💾 Guardar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for id, asunto, remitente, carpeta, es_spam, procesado_en, clasificacion, revisado_manual, origen_clasificacion in correos %}
+                <tr>
+                    <form method="post" action="/entrenar/revisar" class="form-inline">
+                        <input type="hidden" name="id" value="{{ id }}">
+                        <td>{{ asunto }}</td>
+                        <td>{{ remitente }}</td>
+                        <td>{{ carpeta or "-" }}</td>
+                        <td>
+                            <select name="es_spam" class="select-spam">
+                                <option value="1" {% if es_spam %}selected{% endif %}>Sí</option>
+                                <option value="0" {% if not es_spam %}selected{% endif %}>No</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="clasificacion">
+                                <option value="eliminar" {% if clasificacion == 'eliminar' %}selected{% endif %}>Eliminar</option>
+                                <option value="spam" {% if clasificacion == 'spam' %}selected{% endif %}>Spam</option>
+                                <option value="trabajos" {% if clasificacion == 'trabajos' %}selected{% endif %}>Trabajos</option>
+                                <option value="importante" {% if clasificacion == 'importante' %}selected{% endif %}>Importante</option>
+                                <option value="otro" {% if clasificacion == 'otro' %}selected{% endif %}>Otro</option>
+                            </select>
+                        </td>
+                        <td>
+                            <span class="badge {{ 'revisado' if revisado_manual else 'no-revisado' }}">
+                                {{ '✔' if revisado_manual else '✘' }}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="badge {{ origen_clasificacion }}">{{ origen_clasificacion|capitalize }}</span>
+                        </td>
+                        <td>
+                            <button type="submit">Guardar</button>
+                        </td>
+                    </form>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

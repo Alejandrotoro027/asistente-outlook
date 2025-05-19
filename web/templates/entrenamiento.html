@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Entrenamiento del Modelo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        h1 {
+            text-align: center;
+            color: #0078D4;
+        }
+
+        .mensaje {
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            font-size: 16px;
+            font-weight: 500;
+            background-color: #e6f4ea;
+            color: #1a7f37;
+            border: 1px solid #c6e8d5;
+            text-align: center;
+        }
+
+        .error {
+            background-color: #fdecea;
+            color: #b00020;
+            border: 1px solid #f5c6cb;
+        }
+
+        .botones {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .botones a {
+            background-color: #0078D4;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .botones a:hover {
+            background-color: #005ea2;
+        }
+
+        .botones .secundario {
+            background-color: #6c757d;
+        }
+
+        .botones .secundario:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Entrenamiento del Modelo</h1>
+
+        {% if exito %}
+            <div class="mensaje">
+                ✅ El modelo se entrenó correctamente con los datos actuales.
+            </div>
+        {% else %}
+            <div class="mensaje error">
+                ❌ Error entrenando el modelo:<br>
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <div class="botones">
+            <a href="/">⬅️ Volver al Menú Principal</a>
+            <a href="/entrenar/revisar" class="secundario">🔍 Revisar Clasificaciones</a>
+        </div>
+    </div>
+</body>
+</html>

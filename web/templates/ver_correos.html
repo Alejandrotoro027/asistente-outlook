@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Correos registrados</title>
+</head>
+<body>
+    <h1>📨 Correos en la base de datos</h1>
+    <table border="1">
+        <tr><th>ID</th><th>Asunto</th><th>Remitente</th><th>Carpeta</th><th>Es Spam</th></tr>
+        {% for id, asunto, remitente, carpeta, es_spam in correos %}
+        <tr>
+            <td>{{ id }}</td>
+            <td>{{ asunto }}</td>
+            <td>{{ remitente }}</td>
+            <td>{{ carpeta }}</td>
+            <td>{{ 'Sí' if es_spam else 'No' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

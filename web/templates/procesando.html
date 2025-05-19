@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Procesando correos...</title>
+    <meta http-equiv="refresh" content="0; URL=/limpieza_real">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        h1 {
+            color: #0078D4;
+            text-align: center;
+        }
+
+        .mensaje {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #0078D4;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 40px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Procesando correos...</h1>
+        <div class="loader"></div>
+        <div class="mensaje">
+            Esto puede tardar unos segundos. Por favor espera...
+        </div>
+    </div>
+</body>
+</html>

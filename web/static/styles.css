@@ -1,0 +1,215 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef1f5;
+    padding: 30px;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px; /* Más ancho que antes */
+    margin: auto;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    overflow-x: hidden; /* Evita scroll horizontal innecesario */
+}
+
+/* Tabla adaptable */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    table-layout: fixed; /* Fuerza ajuste a ancho disponible */
+    word-wrap: break-word;
+}
+
+thead {
+    background-color: #1d3557;
+    color: white;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+th, td {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: middle;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8fafd;
+}
+
+tbody tr:hover {
+    background-color: #edf3fa;
+}
+
+h1 {
+    color: #1d3557;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 28px;
+}
+
+a {
+    color: #0078d4;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button, input[type="submit"] {
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    font-size: 13px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #005ea2;
+}
+
+input[type="text"], select {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 13px;
+    background-color: #fff;
+}
+
+/* Estilo para selects en tabla de revisión */
+table.revision select {
+    width: 100%;
+    max-width: 110px;
+    padding: 5px 8px;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+/* Badges */
+.badge {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    min-width: 90px;
+}
+
+.tipo-spam { background-color: #e63946; color: white; }
+.tipo-no-spam { background-color: #2a9d8f; color: white; }
+
+.clasificacion.eliminar { background-color: #d63384; color: white; }
+.clasificacion.spam { background-color: #f9844a; color: white; }
+.clasificacion.trabajos { background-color: #219ebc; color: white; }
+.clasificacion.importante { background-color: #f9c74f; color: #000; }
+.clasificacion.otro { background-color: #9d4edd; color: white; }
+
+/* Revisado badge */
+.badge.revisado {
+    background-color: #2ecc71; /* Verde */
+    color: white;
+}
+
+.badge.no-revisado {
+    background-color: #e74c3c; /* Rojo */
+    color: white;
+}
+
+/* Origen de clasificación */
+.badge.automatica {
+    background-color: #6c757d; /* Gris */
+    color: white;
+}
+
+.badge.manual {
+    background-color: #007bff; /* Azul */
+    color: white;
+}
+
+/* Íconos decorativos para ORIGEN */
+.badge.automatica::before {
+    content: "⚙️ ";
+}
+
+.badge.manual::before {
+    content: "🖐️ ";
+}
+
+.boton-volver {
+    display: inline-block;
+    padding: 8px 14px;
+    background-color: #0078d4;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.boton-volver:hover {
+    background-color: #005ea2;
+}
+
+.mensaje-vacio {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+.titulo-seccion {
+    font-weight: bold;
+    margin: 30px 0 10px;
+    border-left: 6px solid #aaa;
+    padding-left: 10px;
+}
+
+/* Secciones */
+.seccion-revisados {
+    background-color: #e0f7f1;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.seccion-no-revisados {
+    background-color: #fff4e6;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Select específico para columna SPAM */
+.select-spam {
+    min-width: 70px;
+    max-width: 90px;
+    width: 100%;
+    padding: 5px 8px;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+/* Estilo para la sección de revisión de clasificaciones */
+.seccion-revision {
+    background-color: #f1f9ff;
+    padding: 30px 40px;
+    border-left: 6px solid #0078d4;
+    border-radius: 12px;
+    margin-top: 20px;
+}

@@ -1,0 +1,39 @@
+# Entornos virtuales
+venv/
+env/
+.venv/
+
+# Archivos de configuración sensibles
+.env
+token.txt
+client_secret.json
+
+# Archivos de datos del proyecto
+whitelist.txt
+recuperados.txt
+eliminados.txt
+
+# Archivos de caché y logs
+__pycache__/
+*.py[cod]
+*.log
+
+# Base de datos temporal (puedes quitar esto si deseas subirla)
+*.sqlite3
+*.db
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos específicos de VS Code o PyCharm
+.vscode/
+.idea/
+
+# Archivos temporales de Jupyter/Visual Studio Code
+.ipynb_checkpoints/
+*.bak
+*.swp
+
+# Otros
+*.zip

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial de Correos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📬 Historial de Correos Procesados</h1>
+        
+        <div class="centrado">
+            <a href="/" class="boton-volver">⬅ Volver al menú principal</a>
+        </div>
+
+        <form method="get" action="/historial" class="filtros">
+            <input type="text" name="remitente" placeholder="Buscar remitente..." value="{{ remitente }}">
+            <button type="submit">🔍 Filtrar</button>
+            <a class="boton-exportar" href="/historial/exportar?remitente={{ remitente }}">📤 Exportar CSV</a>
+        </form>
+
+        <section>
+            <h2>✅ Correos Revisados Manualmente</h2>
+            {% if revisados %}
+                <table class="tabla-historial">
+                    <thead>
+                        <tr>
+                            <th>📌 Tipo</th>
+                            <th>📩 Asunto</th>
+                            <th>👤 Remitente</th>
+                            <th>📅 Fecha</th>
+                            <th>📁 Carpeta</th>
+                            <th>🏷️ Clasificación</th>
+                            <th>⚙️ Origen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for correo in revisados %}
+                            {% set id, asunto, remitente, carpeta, es_spam, procesado_en, clasificacion, revisado, origen = correo %}
+                            <tr>
+                                <td><span class="badge {{ 'tipo-spam' if es_spam else 'tipo-no-spam' }}">{{ 'SPAM' if es_spam else 'NO SPAM' }}</span></td>
+                                <td>{{ asunto }}</td>
+                                <td>{{ remitente }}</td>
+                                <td>{{ procesado_en | formatear_fecha }}</td>
+                                <td>{{ carpeta or '-' }}</td>
+                                <td><span class="badge clasificacion {{ clasificacion or 'otro' }}">{{ clasificacion or '-' }}</span></td>
+                                <td><span class="badge origen {{ origen or 'automatica' }}">{{ origen|capitalize }}</span></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% if total_paginas_rev > 1 %}
+                    <div class="paginacion">
+                        {% for p in range(1, total_paginas_rev + 1) %}
+                            {% if p == pagina_rev %}
+                                <span class="actual">{{ p }}</span>
+                            {% else %}
+                                <a href="?pagina_rev={{ p }}&pagina_no={{ pagina_no }}&remitente={{ remitente }}">{{ p }}</a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% else %}
+                <p class="mensaje-vacio">No hay correos revisados.</p>
+            {% endif %}
+        </section>
+
+        <hr class="separador">
+
+        <section>
+            <h2>📌 Correos No Revisados</h2>
+            {% if no_revisados %}
+                <table class="tabla-historial">
+                    <thead>
+                        <tr>
+                            <th>📌 Tipo</th>
+                            <th>📩 Asunto</th>
+                            <th>👤 Remitente</th>
+                            <th>📅 Fecha</th>
+                            <th>📁 Carpeta</th>
+                            <th>🏷️ Clasificación</th>
+                            <th>⚙️ Origen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for correo in no_revisados %}
+                            {% set id, asunto, remitente, carpeta, es_spam, procesado_en, clasificacion, revisado, origen = correo %}
+                            <tr>
+                                <td><span class="badge {{ 'tipo-spam' if es_spam else 'tipo-no-spam' }}">{{ 'SPAM' if es_spam else 'NO SPAM' }}</span></td>
+                                <td>{{ asunto }}</td>
+                                <td>{{ remitente }}</td>
+                                <td>{{ procesado_en | formatear_fecha }}</td>
+                                <td>{{ carpeta or '-' }}</td>
+                                <td><span class="badge clasificacion {{ clasificacion or 'otro' }}">{{ clasificacion or '-' }}</span></td>
+                                <td><span class="badge origen {{ origen or 'automatica' }}">{{ origen|capitalize }}</span></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% if total_paginas_no > 1 %}
+                    <div class="paginacion">
+                        {% for p in range(1, total_paginas_no + 1) %}
+                            {% if p == pagina_no %}
+                                <span class="actual">{{ p }}</span>
+                            {% else %}
+                                <a href="?pagina_rev={{ pagina_rev }}&pagina_no={{ p }}&remitente={{ remitente }}">{{ p }}</a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% else %}
+                <p class="mensaje-vacio">No hay correos sin revisar.</p>
+            {% endif %}
+        </section>
+    </div>
+</body>
+</html>

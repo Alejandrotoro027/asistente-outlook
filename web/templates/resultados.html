@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados de limpieza</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 40px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #0078D4;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .button-container a {
+            background-color: #0078D4;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .button-container a:hover {
+            background-color: #005ea2;
+        }
+    </style>
+</head>
+<body>
+    <h1>📄 Resultados de Limpieza</h1>
+
+    <h2>🔍 Correos Eliminados</h2>
+    <ul>
+        {% for asunto, remitente in eliminados %}
+            <li><b>{{ asunto }}</b> - {{ remitente }}</li>
+        {% else %}
+            <li>No se eliminaron correos.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>➡️ Correos Movidos a la Bandeja de Entrada</h2>
+    <ul>
+        {% for asunto, remitente, carpeta in movidos %}
+            <li><b>{{ asunto }}</b> - {{ remitente }} desde {{ carpeta }}</li>
+        {% else %}
+            <li>No se movieron correos.</li>
+        {% endfor %}
+    </ul>
+
+    <div class="button-container">
+        <a href="/">⬅️ Volver al Menú Principal</a>
+    </div>
+</body>
+</html>
