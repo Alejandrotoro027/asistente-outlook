@@ -78,7 +78,7 @@ python run_web.py
 ```
 Esto iniciará la aplicación web en [http://localhost:5000/](http://localhost:5000/).
 
-** Acciones disponibles en la interfaz:**
+**Acciones disponibles en la interfaz:**
 
 - 🔑 **Iniciar sesión** con tu cuenta de Outlook  
 - 🧹 **Ejecutar limpieza** de correos no deseados (basado en clasificación automática o manual)  
@@ -91,7 +91,7 @@ Una vez logueado, podrás navegar entre las distintas funcionalidades desde el *
 ---
 
 📁 **Estructura del proyecto**
-
+```
 asistente_outlook/
 │
 ├── core/ # Lógica del asistente (API, limpieza, ML, base de datos)
@@ -109,7 +109,7 @@ asistente_outlook/
 ├── run_web.py # Archivo principal para ejecutar la app
 ├── requirements.txt # Dependencias del proyecto
 └── .gitignore # Exclusiones para seguridad
-
+```
 ---
 
 🛡️ **Seguridad: `.gitignore` recomendado**
