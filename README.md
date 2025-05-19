@@ -32,8 +32,8 @@ Este proyecto es un asistente virtual inteligente que se conecta a tu cuenta de 
 
 ```bash
 git clone https://github.com/Alejandrotoro027/asistente-outlook.git
-cd asistente-outlook
-
+cd asistente-outlook```
+```
 ---
 
 2. **Crea un entorno virtual (opcional pero recomendado)**
@@ -44,14 +44,14 @@ python -m venv venv
 venv\Scripts\activate
 # En macOS/Linux:
 source venv/bin/activate
-
+```
 ---
 
 3. **Instala las dependencias del proyecto**
 
 ```bash
 pip install -r requirements.txt
-
+```
 ---
 
 4. **Configura tus credenciales de Outlook (requerido)**
@@ -62,7 +62,7 @@ Crea un archivo llamado `.env` en la raíz del proyecto con el siguiente conteni
 CLIENT_ID=tu_client_id
 CLIENT_SECRET=tu_client_secret
 REDIRECT_URI=http://localhost:5000/callback
-
+```
 🔐 Reemplaza tu_client_id y tu_client_secret con las credenciales reales de tu aplicación registrada en el Azure Portal, y asegúrate de que REDIRECT_URI coincida con la que configuraste (por ejemplo, http://localhost:5000/callback).
 
 Este archivo es ignorado automáticamente por Git (gracias al .gitignore) y no se subirá al repositorio
@@ -75,7 +75,7 @@ Desde la raíz del proyecto, ejecuta el siguiente comando en tu terminal:
 
 ```bash
 python run_web.py
-
+```
 Esto iniciará la aplicación web en [http://localhost:5000/](http://localhost:5000/).
 
 ** Acciones disponibles en la interfaz:**
@@ -135,7 +135,7 @@ __pycache__/
 # Entorno virtual
 venv/
 .env/
-
+```
 ---
 
 📈 Próximas mejoras
