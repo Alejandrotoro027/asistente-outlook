@@ -36,7 +36,7 @@ cd asistente-outlook
 
 ---
 
-### 2. Crea un entorno virtual (opcional pero recomendado)
+## 2. Crea un entorno virtual (opcional pero recomendado)
 
 ```bash
 python -m venv venv
@@ -47,14 +47,14 @@ source venv/bin/activate
 
 ---
 
-### 3. Instala las dependencias del proyecto
+## 3. Instala las dependencias del proyecto
 
 ```bash
 pip install -r requirements.txt
 
 ---
 
-### 4. Configura tus credenciales de Outlook (requerido)
+## 4. Configura tus credenciales de Outlook (requerido)
 
 Crea un archivo llamado `.env` en la raíz del proyecto con el siguiente contenido:
 
@@ -69,7 +69,7 @@ Este archivo es ignorado automáticamente por Git (gracias al .gitignore) y no s
 
 ---
 
-### 5. Ejecuta el asistente virtual
+## 5. Ejecuta el asistente virtual
 
 Desde la raíz del proyecto, ejecuta el siguiente comando en tu terminal:
 
@@ -112,7 +112,7 @@ asistente_outlook/
 
 ---
 
-### 🛡️ Seguridad: `.gitignore` recomendado
+## 🛡️ Seguridad: `.gitignore` recomendado
 
 Este es un ejemplo de `.gitignore` ya incluido en el repositorio para proteger tus credenciales y archivos sensibles:
 
